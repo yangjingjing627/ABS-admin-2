@@ -1,0 +1,12 @@
+.el-input__inner {
+    border: 1px solid $border-color;
+    color: $font-color;
+    height: 30px;
+}
+.el-input__inner:hover{
+  border-color: $primary-font;
+}
+.el-input__inner:focus {
+    outline: 0;
+    border-color: $primary-font;
+}

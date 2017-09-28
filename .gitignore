@@ -57,3 +57,15 @@ typings/
 # dotenv environment variables file
 .env
 
+.dist
+node_modules
+yarn-error.log
+.DS_Store
+dist/
+npm-debug.log
+.vscode
+.idea
+status
+status/stats.json
+sentry
+sentry/**

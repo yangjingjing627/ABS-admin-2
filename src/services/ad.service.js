@@ -248,9 +248,9 @@ export default class AdService {
   /**
    * 下载原始债权资料
    */
-  downloadAsset(assetID) {
-    return get('asset/' + assetID + '/debtsInfo' + tokenStr)
-  }
+  // downloadAsset(assetID) {
+  //   return get('asset/' + assetID + '/debtsInfo' + tokenStr)
+  // }
 
   // 用户管理页面
   /**

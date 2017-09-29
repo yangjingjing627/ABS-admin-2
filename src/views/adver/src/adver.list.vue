@@ -13,12 +13,14 @@
       </div>
     </div>
     <div class="submit">
-      <input type="button" name="" value="债权打包" @click="adEdit()">
+      <input type="button" v-if='showSelInfo' name="" value="债权打包" @click="adEdit()">
+      <input type="button" v-else class="grey" name="" value="债权打包">
+
       <input type="button" name="" value="获取债权" @click="getMoreDebt(debtMoreNum)">
     </div>
     <div class="table-list">
       <ul class="table-ul-common">
-        <li v-if="isActive" class="width1300">已选中{{ list.length }}笔资产{{ totalSum }}总计元</li>
+        <li v-if="showSelInfo" class="width1300">已选中{{ selList.length }}笔资产{{ totalSum }}总计元</li>
         <li id="header">
           <span @click="demo"><i v-bind:class="{ dui: isActive }"></i></span>
           <span>序号</span>
@@ -97,6 +99,7 @@ export default {
       dateRange: [],
       totalSum: 0,
       loading: false,
+      showSelInfo: false,
       params: {
         length: 10,
         page: 1,
@@ -139,8 +142,10 @@ export default {
       let self = this
       if (self.isActive) {
         self.isActive = false
+        this.showSelInfo = false
       } else {
         self.isActive = true
+        this.showSelInfo = true
       }
       if (this.isActive) {
         this.totalSum = 0
@@ -148,6 +153,7 @@ export default {
           this.list[i].isSel = true
           this.totalSum = this.totalSum + this.list[i].loanMoney
         }
+        self.selList.length = this.list.length
       } else {
         for (let i = 0; i < this.list.length; i++) {
           this.list[i].isSel = false
@@ -213,21 +219,21 @@ export default {
       } else {
         self.showSelList = false
       }
-      // if (self.totalSum > 1000000000) {
-      //   self.showTotalSum = true
-      // } else {
-      //   self.showTotalSum = false
-      // }
-      // if (!self.showSelList) {
-      //   this.$notify.error('请选择债券')
-      // }
-      // if (!self.showTotalSum) {
-      //   this.$notify.error('每次获取债权数量不得小于1000000000')
-      // }
-      // if (self.showSelList && self.showTotalSum) {
-      this.adverInfo.visible = true
-      this.isActive = false
-      // }
+      if (self.totalSum > 40000) {  //  400000000
+        self.showTotalSum = true
+      } else {
+        self.showTotalSum = false
+      }
+      if (!self.showSelList) {
+        this.$notify.error('请选择债券')
+      }
+      if (!self.showTotalSum) {
+        this.$notify.error('每次获取债权数量不得小于40000')
+      }
+      if (self.showSelList && self.showTotalSum) {
+        this.adverInfo.visible = true
+        this.isActive = false
+      }
     },
     updateVisible(flag) {
       this.adverInfo.visible = flag
@@ -269,6 +275,8 @@ export default {
     },
     assetStatus (item) {
       let self = this
+      self.selList = []
+      self.totalSum = 0
       let everySel = 0
       if (item.isSel) {
         item.isSel = false
@@ -278,8 +286,22 @@ export default {
       this.list.forEach(function(e) {
         if (e.isSel) {
           everySel++
+          self.selList.push(e.debtNumber)
+          self.totalSum = self.totalSum + e.loanMoney
         }
       })
+      // this.selLength = self.selList.length
+      // for (let key in self.list) {
+      //   if (self.list[key].isSel) {
+      //     self.selList.push(self.list[key].debtNumber)
+      //     self.totalSum = self.totalSum + self.list[key].loanMoney
+      //   }
+      // }
+      if (everySel > 0) {
+        this.showSelInfo = true
+      } else if (everySel === 0) {
+        this.showSelInfo = false
+      }
       if (everySel === this.list.length) {
         self.isActive = true
       } else {
@@ -424,6 +446,10 @@ export default {
     border-radius: 4px;
     color: #fff;
   }
+  .grey {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 }
 .dome {
   width: 200px;
@@ -437,4 +463,5 @@ export default {
   background: url(../../../assets/img/icon/duigou.png) no-repeat center;
   background-size: contain;
 }
+
 </style>

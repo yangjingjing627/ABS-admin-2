@@ -177,13 +177,18 @@
 </template>
 <script>
 import AdService from '@/services/ad.service'
+import cookie from 'arale-cookie'
+
+let token = cookie.get('access_token')
+let tokenStr = '?access_token=' + token
+
 export default {
   data() {
     return {
       info: {},
       cover_data: {},
       city_count: {},
-
+      API_HOST: 'http://jaki2012.s1.natapp.cc/',
       data: {},
       subPosteriorSubscriber: '',
       differencePaymentPromiser: '',
@@ -194,7 +199,7 @@ export default {
       lawFirm: '',
       posteriorSubscriber: '',
       payOriginType: '按月支付',
-
+      url: '',
       store_count: {},
       city: 'city',
       report: 'report',
@@ -237,11 +242,15 @@ export default {
       this.ratingOrganisation = res.ratingOrganisation
       this.subPosteriorSubscriber = res.subPosteriorSubscriber
       this.accountingFirm = res.accountingFirm
-      this.lawFirm = res.subPosteriorSubscriber
+      this.productType = res.productType
+      this.lawFirm = res.lawFirm
       this.posteriorSubscriber = res.posteriorSubscriber
     },
     async downloadAllAsset (assetID) {
-      await this.AdService.downloadAsset(assetID)
+      this.url = this.API_HOST + 'asset/' + assetID + '/debtsInfo' + tokenStr
+      console.log('tokenStr  = ' + tokenStr)
+      window.location.href = this.url
+      // await this.AdService.downloadAsset(assetID)
       this.$notify.success('已打包成功')
     },
     async pp () {

@@ -13,6 +13,8 @@
 * 端口号配置
 
 > 见 __./config/index.js__  dev.port 默认是8000可根据个人情况修改但请勿提交
+## 启动服务 yarn start
+## 压缩打包 yarn run build(测试环境：修改asset.datail.vue、asset.link.vue文件中的 API_HOST 路径)
 
 ## 目录规范介绍
 

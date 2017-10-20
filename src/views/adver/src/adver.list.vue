@@ -20,7 +20,9 @@
     </div>
     <div class="table-list">
       <ul class="table-ul-common">
-        <li v-if="showSelInfo" class="width1300">已选中{{ selList.length }}笔资产{{ totalSum }}总计元</li>
+        <li v-if="showSelInfo" class="width1300">已选中{{ selList.length }}笔资产总计{{ totalSum }}元</li>
+        <li v-else class="width1300">已选中0笔资产总计0元</li>
+
         <li id="header">
           <span @click="demo"><i v-bind:class="{ dui: isActive }"></i></span>
           <span>序号</span>
@@ -355,6 +357,7 @@ export default {
   background-size: 14px 14px;
   background-color: $topic-color;
   margin-left: 13px;
+  cursor: pointer;
 }
 .table-ul-common{
   li{

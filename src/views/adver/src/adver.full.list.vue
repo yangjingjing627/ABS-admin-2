@@ -256,6 +256,7 @@ export default {
   background-size: 14px 14px;
   background-color: $topic-color;
   margin-left: 13px;
+  cursor: pointer;
 }
 .table-ul-common{
   li{

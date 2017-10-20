@@ -168,7 +168,7 @@ export default {
       subscriber1: '',
       subscriber2: '',
       subscriber3: '',
-      isActive_1: true,
+      isActive_1: false,
       isActive_2: false,
       isActive_3: false,
       subscriber: '',

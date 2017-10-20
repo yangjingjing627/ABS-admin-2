@@ -26,7 +26,8 @@ export default {
       getProtocolInfo: false,
       params: {},
       url: '',
-      API_HOST: 'http://jaki2012.s1.natapp.cc/'
+      // API_HOST: 'http://jaki2012.s1.natapp.cc/'
+      API_HOST: 'http://172.28.32.136:8088/'
     }
   },
   computed: {

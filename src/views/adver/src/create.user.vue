@@ -43,20 +43,23 @@ export default {
       data: {},
       options: [
         {
-          value: '选项1',
-          label: '个体工商户1'
+          value: '投资方',
+          label: '投资方'
         }, {
-          value: '选项2',
-          label: '个体工商户2'
+          value: '信托机构',
+          label: '信托机构'
         }, {
-          value: '选项3',
-          label: '个体工商户3'
+          value: '差额支付承诺人',
+          label: '差额支付承诺人'
         }, {
-          value: '选项4',
-          label: '个体工商户4'
+          value: '资产评级机构',
+          label: '资产评级机构'
         }, {
-          value: '选项5',
-          label: '个体工商户5'
+          value: '会计师事务所',
+          label: '会计师事务所'
+        }, {
+          value: '律师事务所',
+          label: '律师事务所'
         }
       ]
     }

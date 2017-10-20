@@ -3,9 +3,9 @@
     <div class="header-search header-search-eee">
       <form class="" action="index.html" method="post">
         <strong class="lable">用户名：</strong>
-        <input type="text" name="" value="">
+        <input type="text" placehoder="请输入用户名" name="" value="">
       </form>
-      <hsy-select :options="ways" v-model="params.adType">状态:</hsy-select>
+      <hsy-select :options="userTypes" placehoder="请选择" v-model="params.adType">用户类型:</hsy-select>
       <div class="search"></div>
     </div>
     <div class="table-list">
@@ -76,7 +76,6 @@ export default {
       return this.$route.params.sourceType === 'full'
     },
     sourceName () {
-      console.log(this.$route.params.sourceType + '[============]')
       return this.$route.params.sourceType
     }
   },

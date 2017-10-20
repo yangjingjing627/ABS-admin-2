@@ -1,6 +1,7 @@
 <template>
   <div class="check-result">
     <go-back></go-back>
+    <div v-if='getInfo' class="">
     <div class="main-over">
       <p>基本信息</p>
       <div class="main-info">
@@ -149,17 +150,17 @@
       <p>协议信息</p>
       <div class="main-info">
       <ul>
-        <li><span>债券买卖协议：</span><span class="color-blue"><a @click="showAgreement(data.saleAgreementUrl)" href="#">{{ data.saleAgreementUrl }}</a></span></li>
-        <li><span>法律意见书：</span><span class="color-blue"><a @click="showAgreement(data.legalOpinionUrl)"  href="">{{ data.legalOpinionUrl }}</a></span></li>
-        <li><span>认购协议：</span><span class="color-blue"><a @click="showAgreement(data.subscriptionAgreementUrl)" href="#">{{ data.subscriptionAgreementUrl }}</a></span></li>
+        <li><span>债券买卖协议：</span><span class="color-blue"><a @click="showAgreement(data.saleAgreementUrl)">{{ data.saleAgreementUrl }}</a></span></li>
+        <li><span>法律意见书：</span><span class="color-blue"><a @click="showAgreement(data.legalOpinionUrl)">{{ data.legalOpinionUrl }}</a></span></li>
+        <li><span>认购协议：</span><span class="color-blue"><a @click="showAgreement(data.subscriptionAgreementUrl)">{{ data.subscriptionAgreementUrl }}</a></span></li>
       </ul>
       <ul>
-        <li><span>担保协议：</span><span class="color-blue"><a @click="showAgreement(data.guaranteeAgreementUrl)" href="#">{{ data.guaranteeAgreementUrl }}</a></span></li>
-        <li><span>会计意见书：</span><span class="color-blue"><a @click="showAgreement(data.accountantOpinionUrl)" href="#">{{ data.accountantOpinionUrl }}</a></span></li>
+        <li><span>担保协议：</span><span class="color-blue"><a @click="showAgreement(data.guaranteeAgreementUrl)">{{ data.guaranteeAgreementUrl }}</a></span></li>
+        <li><span>会计意见书：</span><span class="color-blue"><a @click="showAgreement(data.accountantOpinionUrl)">{{ data.accountantOpinionUrl }}</a></span></li>
       </ul>
       <ul>
-        <li><span>资产评级说明：</span><span class="color-blue"><a @click="showAgreement(data.ratingInstructionUrl)" href="#">{{ data.ratingInstructionUrl }}</a></span></li>
-        <li><span>产品计划说明书：</span><span class="color-blue"><a @click="showAgreement(data.productPlanInstructionUrl)" href="#">{{ data.productPlanInstructionUrl }}</a></span></li>
+        <li><span>资产评级说明：</span><span class="color-blue"><a @click="showAgreement(data.ratingInstructionUrl)">{{ data.ratingInstructionUrl }}</a></span></li>
+        <li><span>产品计划说明书：</span><span class="color-blue"><a @click="showAgreement(data.productPlanInstructionUrl)">{{ data.productPlanInstructionUrl }}</a></span></li>
       </ul>
     </div>
     </div>
@@ -173,6 +174,8 @@
         <ul></ul>
       </div>
     </div>
+  </div>
+  <div class="tipInfo" v-else>请到资产管理页选择详情！</div>
   </div>
 </template>
 <script>
@@ -221,11 +224,17 @@ export default {
         value: '选项5',
         label: '北京烤鸭'
       }],
-      value3: '广东奥马电器广东奥马电器广东奥马电器'
+      value3: '广东奥马电器广东奥马电器广东奥马电器',
+      getInfo: false
     }
   },
   created() {
     this.AdService = new AdService()
+    if (!this.$route.query.assetID) {
+      this.getInfo = false
+    } else {
+      this.getInfo = true
+    }
   },
   mounted() {
     this.assetID = this.$route.query.assetID
@@ -260,7 +269,6 @@ export default {
     },
     showAgreement (url) {
       this.$router.push('/asset/link?url=' + url)
-      window.location.reload()
     }
   }
 }
@@ -269,6 +277,9 @@ export default {
 @import 'scss/variables.scss';
 .check-result {
   width: 100%;
+  height: 100%;
+  // background: $primary-font4;
+  position: relative;
   .main-over {
     width: 1284px;
     p {
@@ -341,5 +352,18 @@ input[type="button"] {
   background-color: $topic-color;
   color: #fff;
   border-radius: 4px;
+}
+.tipInfo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 30px;
+  line-height: 80px;
+  font-size: 20px;
+  text-align: center;
 }
 </style>

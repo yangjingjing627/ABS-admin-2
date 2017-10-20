@@ -221,7 +221,7 @@ export default {
       } else {
         self.showSelList = false
       }
-      if (self.totalSum > 40000) {  //  400000000
+      if (self.totalSum > 400000000) {  //  400000000
         self.showTotalSum = true
       } else {
         self.showTotalSum = false
@@ -230,7 +230,7 @@ export default {
         this.$notify.error('请选择债券')
       }
       if (!self.showTotalSum) {
-        this.$notify.error('每次获取债权数量不得小于40000')
+        this.$notify.error('每次获取债权数量不得小于400000000')
       }
       if (self.showSelList && self.showTotalSum) {
         this.adverInfo.visible = true

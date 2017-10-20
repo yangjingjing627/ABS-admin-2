@@ -6,7 +6,7 @@ export const value = {
     {label: '全部', value: 0},
     {label: '已退回', value: 30},
     {label: '已打包', value: 10},
-    {label: '已审核', value: 20}
+    {label: '待审核', value: 20}
   ],
   userTypes: [
     {label: '全部', value: 0},

@@ -2,8 +2,8 @@
   <div class="add-modify">
     <go-back></go-back>
     <!-- <iframe v-if="getProtocolInfo" frameborder=0 width=100% height=90% marginheight=0 marginwidth=0 src="http://jaki2012.s1.natapp.cc/agreement/AG201709280008?access_token=2_6e5e42a6ef1e4151bf31a596520dd9d7"></iframe> -->
-    <iframe v-if="getProtocolInfo" frameborder=0 width=100% height=90% marginheight=0 marginwidth=0 :src="url"></iframe>
-    <div v-else class="look-for-link">查询链上信息......</div>
+    <iframe v-if="getInfo" frameborder=0 width=100% height=90% marginheight=0 marginwidth=0 :src="url"></iframe>
+    <div v-else class="look-for-link">请在资产详情选择协议！</div>
   </div>
 </template>
 <script>
@@ -26,6 +26,7 @@ export default {
       getProtocolInfo: false,
       params: {},
       url: '',
+      getInfo: false,
       // API_HOST: 'http://jaki2012.s1.natapp.cc/'
       API_HOST: 'http://172.28.32.136:8088/'
     }
@@ -38,18 +39,19 @@ export default {
       return this.$route.params.adId
     }
   },
+  created() {
+    if (!this.$route.query.url) {
+      this.getInfo = false
+    } else {
+      this.getInfo = true
+    }
+  },
   mounted() {
     this.AdService = new AdService()
     this.getProtocolInfo = true
     this.url = this.API_HOST + this.$route.query.url + tokenStr
-    // if (this.adId) {
-    //   this.getAdverInfo({adId: this.adId})
-    // }
   },
   methods: {
-    // ...mapActions({
-    //   getAdverInfo: 'getAdverInfo'
-    // }),
     async save () {
       let params = await this.check()
       if (params) {
@@ -202,6 +204,7 @@ export default {
   width: 300px;
   height: 30px;
   line-height: 80px;
+  font-size: 20px;
   text-align: center;
 }
 </style>

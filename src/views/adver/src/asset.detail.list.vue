@@ -194,7 +194,7 @@ export default {
       // API_HOST: 'http://jaki2012.s1.natapp.cc/',
       API_HOST: 'http://172.28.32.136:8088/',
       data: {},
-      subPosteriorSubscriber: '',
+      subPosteriorSubscriber: '无',
       differencePaymentPromiser: '',
       productType: '',
       spv: '',

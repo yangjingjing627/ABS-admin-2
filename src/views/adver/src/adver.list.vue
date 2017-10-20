@@ -21,7 +21,7 @@
     <div class="table-list">
       <ul class="table-ul-common">
         <li v-if="showSelInfo" class="width1300">已选中{{ selList.length }}笔资产总计{{ totalSum }}元</li>
-        <li v-else class="width1300">已选中0笔资产总计0元</li>
+        <li v-else class="width1300">已选中0笔资产，总计0元</li>
 
         <li id="header">
           <span @click="demo"><i v-bind:class="{ dui: isActive }"></i></span>
@@ -96,14 +96,14 @@ export default {
       value3: '',
       isActive: false,
       demos: true,
-      debtMoreNum: 10,
+      debtMoreNum: 100,
       selList: [],
       dateRange: [],
       totalSum: 0,
       loading: false,
       showSelInfo: false,
       params: {
-        length: 10,
+        length: 100,
         page: 1,
         startDate: '',
         endDate: ''
@@ -221,7 +221,7 @@ export default {
       } else {
         self.showSelList = false
       }
-      if (self.totalSum > 400000000) {  //  400000000
+      if (self.totalSum > 100000000) {  //  400000000、100000000至少要亿元
         self.showTotalSum = true
       } else {
         self.showTotalSum = false
@@ -230,7 +230,7 @@ export default {
         this.$notify.error('请选择债券')
       }
       if (!self.showTotalSum) {
-        this.$notify.error('每次获取债权数量不得小于400000000')
+        this.$notify.error('每次获取债权数量不得小于100000000')
       }
       if (self.showSelList && self.showTotalSum) {
         this.adverInfo.visible = true

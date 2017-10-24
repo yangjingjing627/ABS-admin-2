@@ -12,11 +12,21 @@ import DealRecord from './src/deal.record.vue'
 import OtherAgreements from './src/other.agreements.vue'
 import RateSetting from './src/rate.setting.vue'
 
+import Login from './src/login.vue'
+
 export default function (router) {
 
   /**
   * 广告列表 (域名默认页面，默认结算广告列表)
   */
+  router.push({
+    path: '/login',
+    name: 'login',
+    component: Login,
+    meta: {
+      requiresAuth: false
+    }
+  })
 
   router.push({
     path: '/',

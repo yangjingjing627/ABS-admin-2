@@ -34,7 +34,7 @@
             </span>
           </li>
           <li><span>资产评级费（元）：</span><span class="pad10">{{ data.ratingMoney }}</span></li>
-          <li><span>律师费（元）：</span><span class="pad10">{{ data.lawyerMoney }}</span></li>
+          <li><span>会计费（元）：</span><span class="pad10">{{ data.accountantFee }}</span></li>
         </ul>
         <ul>
           <li><span>产品类型：</span>
@@ -191,8 +191,8 @@ export default {
       info: {},
       cover_data: {},
       city_count: {},
-      // API_HOST: 'http://jaki2012.s1.natapp.cc/',
-      API_HOST: 'http://172.28.32.136:8088/',
+      API_HOST: 'http://dev-apis.qianbao.com/jiedai/v1/',
+      // API_HOST: 'http://172.28.32.136:8088/',
       data: {},
       subPosteriorSubscriber: '无',
       differencePaymentPromiser: '',

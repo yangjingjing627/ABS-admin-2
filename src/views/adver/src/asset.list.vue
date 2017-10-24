@@ -2,7 +2,7 @@
   <div class="list">
     <div class="header-search">
       <hsy-select :options="types" v-model="params.adType">所属平台:</hsy-select>
-      <hsy-select :options="ways" v-model="params.adType">状态:</hsy-select>
+      <!-- <hsy-select :options="ways" v-model="params.adType">状态:</hsy-select> -->
       <div :options="types" v-model="params.adType">创建时间:
         <el-date-picker
           v-model="dateRange"
@@ -273,10 +273,10 @@ export default {
       width: 4%
     }
     span:nth-child(9) {
-      width: 4%
+      width: 3.5%
     }
     span:nth-child(10) {
-      width: 4%
+      width: 3.5%
     }
     span:nth-child(11) {
       width: 4%

@@ -12,11 +12,12 @@
         </el-date-picker>
         <div class="search"></div>
       </div>
+      <input type="button" name="" value="查询更多" @click="getMoreDebt()">
+
     </div>
     <div class="table-list">
       <ul class="table-ul-common">
         <li id="header">
-          <!-- <span @click="demo"><i v-bind:class="{ dui: isActive }"></i></span> -->
           <span>序号</span>
           <span>所属平台</span>
           <span>债券编号</span>
@@ -94,6 +95,10 @@ export default {
         page: 1,
         size: 20
       },
+      init: {
+        'page': 1,
+        'length': 10
+      },
       list: [],
       ...value,
       adverInfo: {
@@ -129,11 +134,14 @@ export default {
     },
     async getList () {
       let self = this
-      let res = await this.AdService.alldebts({'page': 1, 'length': 20})
-      for (let key in res.debts) {
-        res.debts[key].isSel = false
-      }
+      let res = await this.AdService.alldebts(this.init)
       self.list = res.debts
+    },
+    async getMoreDebt () {
+      let self = this
+      this.init.page++
+      let res = await this.AdService.alldebts(this.init)
+      self.list = self.list.concat(res.debts)
     },
     search () {
       this.getList()
@@ -348,6 +356,16 @@ export default {
     border-radius: 4px;
     color: #fff;
   }
+}
+input {
+  display: block;
+  width: 100px;
+  height: 34;
+  margin-left: 7px;
+  line-height: 34px;
+  background-color: $topic-color;
+  border-radius: 4px;
+  color: #fff;
 }
 .dui {
   background: url(../../../assets/img/icon/duigou.png) no-repeat center;

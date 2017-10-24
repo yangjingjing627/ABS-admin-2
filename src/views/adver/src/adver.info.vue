@@ -62,7 +62,7 @@
     <div class="main-over">
       <div class="main-info">
         <ul>
-          <li><span>预期收益率（1%）</span><span class="pad10"><input type="text" name="" value=""></span></li>
+          <li><span>预期收益率（1%）</span><span class="pad10"><input v-model='expectedProfitRate' type="text" name="" value=""></span></li>
           <li><span>信托机构</span>
             <span>
                 <el-select v-model="spvs"  placeholder="请选择">
@@ -170,7 +170,7 @@ export default {
       subscriber3: '',
       isActive_1: false,
       isActive_2: false,
-      isActive_3: false,
+      isActive_3: true,
       subscriber: '',
       productName: '',
       productSize: '',
@@ -179,6 +179,7 @@ export default {
       ratingRate: '', // 资产评级费
       lawyerMoney: '', // 律师费
       accountantMoney: '', // 会计费
+      expectedProfitRate: '15',
       selList: ['zq201709050003', 'zq201709050004'],
       options: [
         {
@@ -302,14 +303,14 @@ export default {
         'productSize': this.productSize,
         'creditor': '钱包金服',
         'posteriorSubscriber': '钱包金服',
-        'expectedProfitRate': 15,
+        'expectedProfitRate': this.expectedProfitRate,
         'paymentWay': this.payType,
         'spv': this.spvs,
-        'ratingRate': this.data.ratingRate,
-        'spvRate': this.data.spvRate,
+        'ratingRate': this.data.rateSetting.ratingRate,
+        'spvRate': this.data.rateSetting.spvRate,
 
-        'lawyerMoney': this.data.lawyerFee,
-        'accountantMoney': this.data.accountantFee,
+        'lawyerMoney': this.data.rateSetting.lawyerFee,
+        'accountantMoney': this.data.rateSetting.accountantFee,
 
         'differencePaymentPromiser': this.promisers,
         'ratingOrganisation': this.ratingOrganisations,

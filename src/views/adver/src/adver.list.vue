@@ -96,14 +96,14 @@ export default {
       value3: '',
       isActive: false,
       demos: true,
-      debtMoreNum: 100,
+      debtMoreNum: 500,
       selList: [],
       dateRange: [],
       totalSum: 0,
       loading: false,
       showSelInfo: false,
       params: {
-        length: 100,
+        length: 500,
         page: 1,
         startDate: '',
         endDate: ''

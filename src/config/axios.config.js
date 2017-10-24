@@ -54,9 +54,9 @@ service.interceptors.response.use(
       if (config.isAutoMsg) {
         Vue.prototype.$notify.error(message)
       }
-      if (code === 401) {
-        window.location.href = '/login'
-      }
+      // if (code === 401) {
+      //   window.location.href = '/login'
+      // }
       return Promise.reject({code, message}) // eslint-disable-line
     } else {
       return data

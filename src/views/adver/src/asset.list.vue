@@ -230,7 +230,7 @@ export default {
   background-color: $primary-font;
 }
 .table-list, .header-search {
-  width: 2000px;
+  // width: 2000px;
 }
 .search {
   width: 34px;

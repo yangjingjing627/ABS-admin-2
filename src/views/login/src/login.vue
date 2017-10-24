@@ -30,11 +30,8 @@ export default {
   },
   methods: {
     async login() {
-      // if (cookie.get('access_token') !== '') {
-      //   this.$cookie.remove('access_token')
-      // }
       console.log('退出前，token= ' + cookie.get('access_token'))
-
+      this.$notify.error('--1--')
       let res = await this.LoginService.login({username: this.username, password: this.passwd})
       this.$notify.success('登录成功')
       for (let key in res) {
@@ -44,10 +41,15 @@ export default {
           expires: 7
         })
       }
-      console.log('token= ' + cookie.get('access_token'))
+      window.token = res['access_token']
+      window.tokenStr = '?access_token=' + window.token
+      this.$notify.error('--2--')
 
+      console.log('denglou-data' + JSON.stringify(res))
+      console.log('token= ' + cookie.get('access_token'))
+      this.$notify.error('--3--')
       this.$router.replace('／')
-      window.location.reload()
+      // window.location.reload()
     }
   }
 }

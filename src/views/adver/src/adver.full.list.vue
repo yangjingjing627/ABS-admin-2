@@ -245,7 +245,7 @@ export default {
 <style lang="scss" scoped>
 @import 'scss/variables.scss';
 .header-search {
-  height: 83px;
+  height: 120px;
   padding-bottom: 25px;
   .r-search {
     display: flex;
@@ -341,7 +341,7 @@ export default {
   }
 }
 .submit {
-  min-width: 1300px;
+  // min-width: 1300px;
   height: 62px;
   padding: 14px 30px 14px 0;
   background-color: #F9F9F9;

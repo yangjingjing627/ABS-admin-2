@@ -1,8 +1,8 @@
 import {get, post, patch, put} from 'http'
 import cookie from 'arale-cookie'
 
-let token = cookie.get('access_token')
-let tokenStr = '?access_token=' + token
+window.token = cookie.get('access_token')
+window.tokenStr = '?access_token=' + window.token
 export default class AdService {
 
   /**
@@ -167,7 +167,7 @@ export default class AdService {
    * @memberof AdService
    */
   getNewdebts(params) {
-    return get('newdebts' + tokenStr, params)
+    return get('newdebts' + window.tokenStr, params)
   }
 
   /**
@@ -179,7 +179,7 @@ export default class AdService {
    * @memberof AdService
    */
   getAllunrevieweddebts(params) {
-    return get('allunrevieweddebts' + tokenStr, params)
+    return get('allunrevieweddebts' + window.tokenStr, params)
   }
 
  /**
@@ -191,7 +191,7 @@ export default class AdService {
   * @memberof AdService
   */
   getDebt(params) {
-    return patch('debt' + tokenStr, params)
+    return patch('debt' + window.tokenStr, params)
   }
 
   /**
@@ -202,14 +202,14 @@ export default class AdService {
    * @memberof AdService
    */
   packagedClaim(params) {
-    return post('asset' + tokenStr, params)
+    return post('asset' + window.tokenStr, params)
   }
 
   /**
    *
    */
   initialOptions() {
-    return get('initialOptions' + tokenStr)
+    return get('initialOptions' + window.tokenStr)
   }
 
   /**
@@ -221,7 +221,7 @@ export default class AdService {
    * @memberof AdService
    */
   alldebts(params) {
-    return get('alldebts' + tokenStr, params)
+    return get('alldebts' + window.tokenStr, params)
   }
 
 // 资产管理
@@ -233,7 +233,7 @@ export default class AdService {
    * @memberof AdService
    */
   allassets(params) {
-    return get('allassets' + tokenStr, params)
+    return get('allassets' + window.tokenStr, params)
   }
 
   /**
@@ -242,14 +242,14 @@ export default class AdService {
    *
    */
   assetSingleInfo(assetID) {
-    return get('asset/' + assetID + tokenStr)
+    return get('asset/' + assetID + window.tokenStr)
   }
 
   /**
    * 下载原始债权资料
    */
   // downloadAsset(assetID) {
-  //   return get('asset/' + assetID + '/debtsInfo' + tokenStr)
+  //   return get('asset/' + assetID + '/debtsInfo' + window.tokenStr)
   // }
 
   // 用户管理页面
@@ -257,7 +257,7 @@ export default class AdService {
    *进入页面时，初始化获取存放所有用户信息的列表。
    */
   users() {
-    return get('users' + tokenStr)
+    return get('users' + window.tokenStr)
   }
 
   /**
@@ -271,7 +271,7 @@ export default class AdService {
    * @memberof AdService
    */
   setUser(params) {
-    return post('users' + tokenStr, params)
+    return post('users' + window.tokenStr, params)
   }
 
   /**
@@ -282,7 +282,7 @@ export default class AdService {
    * @memberof AdService
    */
   optUser(params) {
-    return get('users/actionLogs' + tokenStr, params)
+    return get('users/actionLogs' + window.tokenStr, params)
   }
 
   // 交易记录页面
@@ -290,7 +290,7 @@ export default class AdService {
    * 查询用户交易记录
    */
   assetInfo() {
-    return get('asset/txs' + tokenStr)
+    return get('asset/txs' + window.tokenStr)
   }
 
   // 费率设置页
@@ -298,7 +298,7 @@ export default class AdService {
    * 获取系统默认费率
    */
   rateSetting() {
-    return get('setting/rateSetting' + tokenStr)
+    return get('setting/rateSetting' + window.tokenStr)
   }
 
   /**
@@ -313,17 +313,17 @@ export default class AdService {
    * @memberof AdService
    */
   editRate(params) {
-    return put('setting/rateSetting' + tokenStr, params)
+    return put('setting/rateSetting' + window.tokenStr, params)
 
   }
 
   assetUrl(item) {
-    return post(item + tokenStr)
+    return post(item + window.tokenStr)
   }
 
   //
   getRatingUrl() {
-    return get('agreement/AG201709280008' + tokenStr)
+    return get('agreement/AG201709280008' + window.tokenStr)
   }
 
 }

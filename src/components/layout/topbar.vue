@@ -61,6 +61,7 @@ $iconImgUrl:'../../assets/img';
       background-size: 30px 30px;
       a {
         margin-right: 7px;
+        color: #fff;
       }
       a:hover{
         color: $primary-font;

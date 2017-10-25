@@ -256,16 +256,16 @@ export default {
       width: 5%
     }
     span:nth-child(3) {
-      width: 5%
+      width: 6%
     }
     span:nth-child(4) {
-      width: 6%
+      width: 5%
     }
     span:nth-child(5) {
-      width: 6%
+      width: 5%
     }
     span:nth-child(6) {
-      width: 6%
+      width: 5%
     }
     span:nth-child(7) {
       width: 5%
@@ -274,10 +274,10 @@ export default {
       width: 4%
     }
     span:nth-child(9) {
-      width: 3.5%
+      width: 4%
     }
     span:nth-child(10) {
-      width: 3.5%
+      width: 4%
     }
     span:nth-child(11) {
       width: 4%
@@ -295,13 +295,13 @@ export default {
       width: 6%
     }
     span:nth-child(16) {
-      width: 5%
+      width: 6%
     }
     span:nth-child(17) {
-      width: 5%
+      width: 6%
     }
     span:nth-child(18) {
-      width: 5%
+      width: 3%
     }
     span:nth-child(19) {
       width: 5%

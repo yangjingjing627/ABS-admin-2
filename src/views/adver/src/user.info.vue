@@ -34,6 +34,7 @@
 </template>
 <script>
 import { value } from './adver.list.js'
+import cookie from 'arale-cookie'
 import AdService from '@/services/ad.service'
 import CreateUser from './create.user.vue'
 import OperationLog from './operation.log.vue'
@@ -104,7 +105,7 @@ export default {
   methods: {
     async getList () {
       let self = this
-      let res = await this.AdService.users()
+      let res = await this.AdService.users(cookie.get('access_token'))
       self.list = res
     },
     async setUser () {
@@ -114,7 +115,7 @@ export default {
       this.operationLog.visible = true
       this.operationLog.userID = userID
       console.log('userID, ' + this.operationLog.userID)
-      let res = await this.AdService.optUser({'userID': this.operationLog.userID})
+      let res = await this.AdService.optUser({'userID': this.operationLog.userID}, cookie.get('access_token'))
       this.logData.tableData = res
     },
     search () {

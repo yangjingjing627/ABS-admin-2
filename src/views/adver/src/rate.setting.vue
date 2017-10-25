@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+import cookie from 'arale-cookie'
 import AdService from '@/services/ad.service'
 export default {
   data() {
@@ -35,7 +36,7 @@ export default {
   methods: {
     async getRate () {
       let self = this
-      let res = await this.AdService.rateSetting()
+      let res = await this.AdService.rateSetting(cookie.get('access_token'))
       self.lawyerFee = res.lawyerFee
       self.accountantFee = res.accountantFee
       self.spvRate = res.spvRate
@@ -49,7 +50,7 @@ export default {
       params.spvRate = self.spvRate
       params.ratingRate = self.ratingRate
       params.id = self.id
-      await this.AdService.editRate(params)
+      await this.AdService.editRate(params, cookie.get('access_token'))
       this.$notify.success('修改成功')
     }
   }

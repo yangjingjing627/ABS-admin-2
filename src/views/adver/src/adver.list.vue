@@ -168,7 +168,7 @@ export default {
     },
     async getMoreDebt (debtMoreNum) {
       let self = this
-      let res = await this.AdService.getNewdebts({number: debtMoreNum})
+      let res = await this.AdService.getNewdebts({number: debtMoreNum}, cookie.get('access_token'))
       for (let key in res) {
         res[key].isSel = false
       }
@@ -180,7 +180,7 @@ export default {
       this.$notify.error('--5--')
 
       let self = this
-      let res = await this.AdService.getAllunrevieweddebts(this.params)
+      let res = await this.AdService.getAllunrevieweddebts(this.params, cookie.get('access_token'))
       for (let key in res.debts) {
         res.debts[key].isSel = false
       }
@@ -278,7 +278,7 @@ export default {
       })
     },
     async modify (item) {
-      await this.AdService.getDebt({'state': '已退回', 'debtNumber': item})
+      await this.AdService.getDebt({'state': '已退回', 'debtNumber': item}, cookie.get('access_token'))
       this.$notify.success('退回成功')
       this.getList()
     },

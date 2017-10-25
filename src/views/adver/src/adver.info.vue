@@ -150,6 +150,8 @@
 </template>
 <script>
 import AdService from '@/services/ad.service'
+import cookie from 'arale-cookie'
+
 export default {
   data() {
     return {
@@ -249,7 +251,7 @@ export default {
     },
     async initialOptions() {
       let self = this
-      let res = await this.AdService.initialOptions()
+      let res = await this.AdService.initialOptions(cookie.get('access_token'))
       self.data = res
       self.data.payType = [
         {
@@ -319,7 +321,7 @@ export default {
         'lawFirm': this.lawFirms,
         'debtsNumbers': this.adverInfo.selList
       }
-      let res = await this.AdService.packagedClaim(params)
+      let res = await this.AdService.packagedClaim(params, cookie.get('access_token'))
       this.adverInfo.visible = false
       this.adverInfo.isActive = false
       this.$notify.success(res)

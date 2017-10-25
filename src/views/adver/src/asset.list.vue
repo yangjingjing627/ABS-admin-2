@@ -84,6 +84,7 @@
 </template>
 <script>
 import { value } from './adver.list.js'
+import cookie from 'arale-cookie'
 import AdService from '@/services/ad.service'
 import AdverInfo from './adver.info.vue'
 
@@ -122,7 +123,7 @@ export default {
   methods: {
     async getList () {
       let self = this
-      let res = await this.AdService.allassets(this.params)
+      let res = await this.AdService.allassets(this.params, cookie.get('access_token'))
       for (let key in res) {
         res[key].isSel = false
       }
@@ -190,7 +191,7 @@ export default {
       })
     },
     async modify (item) {
-      await this.AdService.assetUrl(item)
+      await this.AdService.assetUrl(item, cookie.get('access_token'))
       this.getList()
     },
     assetStatus () {

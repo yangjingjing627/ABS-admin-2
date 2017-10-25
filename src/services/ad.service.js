@@ -1,8 +1,8 @@
 import {get, post, patch, put} from 'http'
 import cookie from 'arale-cookie'
-
-window.token = cookie.get('access_token')
-window.tokenStr = '?access_token=' + window.token
+console.log('-----ad.serverce.js--------' + cookie.get('access_token'))
+// window.token = cookie.get('access_token')
+// window.tokenStr = '?access_token=' + window.token
 export default class AdService {
 
   /**
@@ -178,8 +178,8 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  getAllunrevieweddebts(params) {
-    return get('allunrevieweddebts' + window.tokenStr, params)
+  getAllunrevieweddebts(params, token) {
+    return get('allunrevieweddebts' + '?access_token=' + token, params)
   }
 
  /**
@@ -190,8 +190,8 @@ export default class AdService {
   * @returns
   * @memberof AdService
   */
-  getDebt(params) {
-    return patch('debt' + window.tokenStr, params)
+  getDebt(params, token) {
+    return patch('debt' + '?access_token=' + token, params)
   }
 
   /**
@@ -201,15 +201,15 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  packagedClaim(params) {
-    return post('asset' + window.tokenStr, params)
+  packagedClaim(params, token) {
+    return post('asset' + '?access_token=' + token, params)
   }
 
   /**
    *
    */
-  initialOptions() {
-    return get('initialOptions' + window.tokenStr)
+  initialOptions(token) {
+    return get('initialOptions' + '?access_token=' + token)
   }
 
   /**
@@ -220,8 +220,8 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  alldebts(params) {
-    return get('alldebts' + window.tokenStr, params)
+  alldebts(params, token) {
+    return get('alldebts' + '?access_token=' + token, params)
   }
 
 // 资产管理
@@ -232,8 +232,8 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  allassets(params) {
-    return get('allassets' + window.tokenStr, params)
+  allassets(params, token) {
+    return get('allassets' + '?access_token=' + token, params)
   }
 
   /**
@@ -241,23 +241,23 @@ export default class AdService {
    * 根据资产id获取资产的详细信息
    *
    */
-  assetSingleInfo(assetID) {
-    return get('asset/' + assetID + window.tokenStr)
+  assetSingleInfo(assetID, token) {
+    return get('asset/' + assetID + '?access_token=' + token)
   }
 
   /**
    * 下载原始债权资料
    */
   // downloadAsset(assetID) {
-  //   return get('asset/' + assetID + '/debtsInfo' + window.tokenStr)
+  //   return get('asset/' + assetID + '/debtsInfo' + '?access_token=' + token)
   // }
 
   // 用户管理页面
   /**
    *进入页面时，初始化获取存放所有用户信息的列表。
    */
-  users() {
-    return get('users' + window.tokenStr)
+  users(token) {
+    return get('users' + '?access_token=' + token)
   }
 
   /**
@@ -270,8 +270,8 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  setUser(params) {
-    return post('users' + window.tokenStr, params)
+  setUser(params, token) {
+    return post('users' + '?access_token=' + token, params)
   }
 
   /**
@@ -281,24 +281,24 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  optUser(params) {
-    return get('users/actionLogs' + window.tokenStr, params)
+  optUser(params, token) {
+    return get('users/actionLogs' + '?access_token=' + token, params)
   }
 
   // 交易记录页面
   /**
    * 查询用户交易记录
    */
-  assetInfo() {
-    return get('asset/txs' + window.tokenStr)
+  assetInfo(token) {
+    return get('asset/txs' + '?access_token=' + token)
   }
 
   // 费率设置页
   /**
    * 获取系统默认费率
    */
-  rateSetting() {
-    return get('setting/rateSetting' + window.tokenStr)
+  rateSetting(token) {
+    return get('setting/rateSetting' + '?access_token=' + token)
   }
 
   /**
@@ -312,18 +312,18 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  editRate(params) {
-    return put('setting/rateSetting' + window.tokenStr, params)
+  editRate(params, token) {
+    return put('setting/rateSetting' + '?access_token=' + token, params)
 
   }
 
-  assetUrl(item) {
-    return post(item + window.tokenStr)
+  assetUrl(item, token) {
+    return post(item + '?access_token=' + token)
   }
 
   //
-  getRatingUrl() {
-    return get('agreement/AG201709280008' + window.tokenStr)
+  getRatingUrl(token) {
+    return get('agreement/AG201709280008' + '?access_token=' + token)
   }
 
 }

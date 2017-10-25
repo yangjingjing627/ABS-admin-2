@@ -30,6 +30,7 @@
 </hsy-dialog>
 </template>
 <script>
+import cookie from 'arale-cookie'
 import AdService from '@/services/ad.service'
 export default {
   data() {
@@ -98,7 +99,7 @@ export default {
         'account': this.account,
         'username': this.username
       }
-      let res = await this.AdService.setUser(params)
+      let res = await this.AdService.setUser(params, cookie.get('access_token'))
       this.$notify.success(res)
       this.creatUsrInfo.visible = false
       this.$emit('getList')

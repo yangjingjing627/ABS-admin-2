@@ -244,7 +244,7 @@ export default {
   },
   methods: {
     async getAssetSingleInfo (assetID) {
-      let res = await this.AdService.assetSingleInfo(assetID)
+      let res = await this.AdService.assetSingleInfo(assetID, cookie.get('access_token'))
       this.data = res
       this.subPosteriorSubscriber = res.subPosteriorSubscriber
       this.differencePaymentPromiser = res.differencePaymentPromiser
@@ -264,7 +264,7 @@ export default {
       this.$notify.success('已打包成功')
     },
     async pp () {
-      await this.AdService.getRatingUrl()
+      await this.AdService.getRatingUrl(cookie.get('access_token'))
       this.$notify.success('获取协议债券买卖成功')
     },
     showAgreement (url) {

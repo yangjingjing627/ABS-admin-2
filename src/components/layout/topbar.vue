@@ -9,6 +9,7 @@
   </div>
 </template>
 <script>
+import cookie from 'arale-cookie'
 import LoginService from '@/services/login.service.js'
 
 export default {
@@ -27,7 +28,7 @@ export default {
   },
   methods: {
     async logout () {
-      await this.LoginService.logout({})
+      await this.LoginService.logout(cookie.get('access_token'))
       this.$cookie.remove('access_token')
       this.$router.push('/login')
       window.location.reload()

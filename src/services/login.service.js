@@ -1,10 +1,10 @@
 import { post } from 'http'
-import cookie from 'arale-cookie'
+// import cookie from 'arale-cookie'
 
 // let token = cookie.get('access_token')
 // let tokenStr = '?access_token=' + token
-window.token = cookie.get('access_token')
-window.tokenStr = '?access_token=' + window.token
+// window.token = cookie.get('access_token')
+// window.tokenStr = '?access_token=' + window.token
 export default class LoginService {
   /**
    * 登录接口
@@ -25,8 +25,8 @@ export default class LoginService {
    * @memberof LoginService
    */
 
-  logout() {
-    return post('auth/logout' + window.tokenStr)
+  logout(token) {
+    return post('auth/logout' + '?access_token=' + token)
   }
 
 }

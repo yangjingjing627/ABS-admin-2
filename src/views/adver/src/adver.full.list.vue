@@ -78,6 +78,7 @@
 import { value } from './adver.list.js'
 import AdService from '@/services/ad.service'
 import AdverInfo from './adver.info.vue'
+import cookie from 'arale-cookie'
 
 export default {
   data() {
@@ -134,13 +135,13 @@ export default {
     },
     async getList () {
       let self = this
-      let res = await this.AdService.alldebts(this.init)
+      let res = await this.AdService.alldebts(this.init, cookie.get('access_token'))
       self.list = res.debts
     },
     async getMoreDebt () {
       let self = this
       this.init.page++
-      let res = await this.AdService.alldebts(this.init)
+      let res = await this.AdService.alldebts(this.init, cookie.get('access_token'))
       self.list = self.list.concat(res.debts)
     },
     search () {

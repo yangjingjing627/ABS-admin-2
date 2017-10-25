@@ -33,6 +33,9 @@ export default {
       console.log('退出前，token= ' + cookie.get('access_token'))
       this.$notify.error('--1--')
       let res = await this.LoginService.login({username: this.username, password: this.passwd})
+      if (!res) {
+        this.$notify.error('登录失败')
+      }
       this.$notify.success('登录成功')
       for (let key in res) {
         // 设置了一周的过期时间

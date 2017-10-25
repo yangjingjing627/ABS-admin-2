@@ -191,7 +191,7 @@ export default {
       info: {},
       cover_data: {},
       city_count: {},
-      API_HOST: 'http://dev-apis.qianbao.com/jiedai/v1/',
+      API_HOST: 'https://dev-apis.qianbao.com/jiedai/v1/',
       // API_HOST: 'http://172.28.32.136:8088/',
       data: {},
       subPosteriorSubscriber: '无',
@@ -281,7 +281,8 @@ export default {
   // background: $primary-font4;
   position: relative;
   .main-over {
-    width: 1284px;
+    // width: 1284px;
+    padding-right: 10px;
     p {
       width: 100%;
       height: 54px;

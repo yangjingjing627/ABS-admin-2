@@ -136,7 +136,6 @@ export default {
   },
   created() {
     this.AdService = new AdService()
-    this.$notify.error('--4--' + cookie.get('access_token'))
     console.log('token=页面债券 ' + cookie.get('access_token'))
   },
   mounted() {
@@ -177,15 +176,11 @@ export default {
     },
 
     async getList () {
-      this.$notify.error('--5--')
-
       let self = this
       let res = await this.AdService.getAllunrevieweddebts(this.params, cookie.get('access_token'))
       for (let key in res.debts) {
         res.debts[key].isSel = false
       }
-      this.$notify.error('--6--')
-
       self.list = res.debts
     },
     search () { // 点击搜索按钮获取时间的起始和结束

@@ -143,7 +143,8 @@ export default {
 .check-result {
   width: 100%;
   .main-over {
-    width: 1284px;
+    // width: 1284px;
+    padding-right: 10px;
     p {
       width: 100%;
       height: 54px;

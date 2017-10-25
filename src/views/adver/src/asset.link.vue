@@ -27,7 +27,7 @@ export default {
       params: {},
       url: '',
       getInfo: false,
-      API_HOST: 'http://dev-apis.qianbao.com/jiedai/v1/'
+      API_HOST: 'https://dev-apis.qianbao.com/jiedai/v1/'
       // API_HOST: 'http://172.28.32.136:8088/'
     }
   },

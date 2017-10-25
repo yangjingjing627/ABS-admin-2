@@ -31,7 +31,6 @@ export default {
   methods: {
     async login() {
       console.log('退出前，token= ' + cookie.get('access_token'))
-      this.$notify.error('--1--')
       let res = await this.LoginService.login({username: this.username, password: this.passwd})
       if (!res) {
         this.$notify.error('登录失败')
@@ -44,13 +43,8 @@ export default {
           expires: 7
         })
       }
-      window.token = res['access_token']
-      window.tokenStr = '?access_token=' + window.token
-      this.$notify.error('--2--')
-
       console.log('denglou-data' + JSON.stringify(res))
       console.log('token= ' + cookie.get('access_token'))
-      this.$notify.error('--3--')
       this.$router.replace('／')
       // window.location.reload()
     }

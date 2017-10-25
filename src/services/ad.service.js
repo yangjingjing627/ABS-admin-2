@@ -1,6 +1,6 @@
 import {get, post, patch, put} from 'http'
-import cookie from 'arale-cookie'
-console.log('-----ad.serverce.js--------' + cookie.get('access_token'))
+// import cookie from 'arale-cookie'
+// console.log('-----ad.serverce.js--------' + cookie.get('access_token'))
 // window.token = cookie.get('access_token')
 // window.tokenStr = '?access_token=' + window.token
 export default class AdService {
@@ -166,8 +166,8 @@ export default class AdService {
    * @returns
    * @memberof AdService
    */
-  getNewdebts(params) {
-    return get('newdebts' + window.tokenStr, params)
+  getNewdebts(params, token) {
+    return get('newdebts' + '?access_token=' + token, params)
   }
 
   /**

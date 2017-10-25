@@ -27,7 +27,7 @@
           <span @click="demo"><i v-bind:class="{ dui: isActive }"></i></span>
           <span>序号</span>
           <span>所属平台</span>
-          <span>债券编号</span>
+          <span>债权编号</span>
           <span>债权ID</span>
           <span>借款编号</span>
 
@@ -112,7 +112,7 @@ export default {
       list: [],
       ...value,
       adverInfo: {
-        dialogTitle: '打包债券',
+        dialogTitle: '打包债权',
         visible: false,
         adId: undefined,
         sourceType: '',
@@ -136,7 +136,7 @@ export default {
   },
   created() {
     this.AdService = new AdService()
-    console.log('token=页面债券 ' + cookie.get('access_token'))
+    console.log('token=页面债权 ' + cookie.get('access_token'))
   },
   mounted() {
     this.getList()
@@ -229,10 +229,10 @@ export default {
         self.showTotalSum = false
       }
       if (!self.showSelList) {
-        this.$notify.error('请选择债券')
+        this.$notify.error('请选择债权')
       }
       if (!self.showTotalSum) {
-        this.$notify.error('每次获取债权数量不得小于100000000')
+        this.$notify.error('每次获取债权金额不得小于100000000')
       }
       if (self.showSelList && self.showTotalSum) {
         this.adverInfo.visible = true

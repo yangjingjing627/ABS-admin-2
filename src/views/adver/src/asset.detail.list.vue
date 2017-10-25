@@ -150,7 +150,7 @@
       <p>协议信息</p>
       <div class="main-info">
       <ul>
-        <li><span>债券买卖协议：</span><span class="color-blue"><a @click="showAgreement(data.saleAgreementUrl)">{{ data.saleAgreementUrl }}</a></span></li>
+        <li><span>债权买卖协议：</span><span class="color-blue"><a @click="showAgreement(data.saleAgreementUrl)">{{ data.saleAgreementUrl }}</a></span></li>
         <li><span>法律意见书：</span><span class="color-blue"><a @click="showAgreement(data.legalOpinionUrl)">{{ data.legalOpinionUrl }}</a></span></li>
         <li><span>认购协议：</span><span class="color-blue"><a @click="showAgreement(data.subscriptionAgreementUrl)">{{ data.subscriptionAgreementUrl }}</a></span></li>
       </ul>
@@ -165,10 +165,10 @@
     </div>
     </div>
     <div class="main-over">
-      <p>原始债券信息</p>
+      <p>原始债权信息</p>
       <div class="main-info main-info-flex4">
         <ul>
-          <li><span>债券资料：</span><span><input @click="downloadAllAsset(assetID)" type="button" name="" value="下载"></span></li>
+          <li><span>债权资料：</span><span><input @click="downloadAllAsset(assetID)" type="button" name="" value="下载"></span></li>
         </ul>
         <ul></ul>
         <ul></ul>
@@ -265,7 +265,7 @@ export default {
     },
     async pp () {
       await this.AdService.getRatingUrl(cookie.get('access_token'))
-      this.$notify.success('获取协议债券买卖成功')
+      this.$notify.success('获取协议债权买卖成功')
     },
     showAgreement (url) {
       this.$router.push('/asset/link?url=' + url)

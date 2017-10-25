@@ -4,16 +4,16 @@
       <input class="searchAll" type="text" name="" placeholder="搜索" value="">
     </form>
     <ul>
-      <li class="title">债券管理
+      <li class="title">债权管理
       </li>
       <li :class="{'active': selectName === 'adversettle'}">
         <router-link to="/adver/settle/list">
-          债券池操作
+          债权池操作
         </router-link>
       </li>
       <li :class="{'active': selectName === 'adverfull'}">
         <router-link to="/adver/full/list">
-          债券查询
+          债权查询
         </router-link>
       </li>
     </ul>
@@ -25,7 +25,7 @@
       </li>
       <li :class="{'active': selectName === 'assetdetail'}">
         <router-link to="/asset/detail/list">
-          资产详情页
+          资产详情
         </router-link>
       </li>
       <li :class="{'active': selectName === 'assetlink'}">

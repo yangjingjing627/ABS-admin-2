@@ -20,7 +20,7 @@
         <li id="header">
           <span>序号</span>
           <span>所属平台</span>
-          <span>债券编号</span>
+          <span>债权编号</span>
           <span>债权ID</span>
           <span>借款编号</span>
 

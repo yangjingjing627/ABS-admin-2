@@ -2,7 +2,7 @@
 @import '../../scss/mixin.scss';
 $iconImgUrl:'../assets/img';
 .header-search{
-  // min-width: 1300px;
+  min-width: 1300px;
   height: 112px;
   box-sizing: border-box;
   font-size: 14px;
@@ -18,7 +18,7 @@ $iconImgUrl:'../assets/img';
   }
 }
 .table-list{
-  // min-width: 1300px;
+  min-width: 1300px;
 }
 .table-ul-common {
 	width: 100%;

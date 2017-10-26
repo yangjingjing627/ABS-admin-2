@@ -253,13 +253,13 @@ export default {
       width: 6%
     }
     span:nth-child(2) {
-      width: 5%
+      width: 4%
     }
     span:nth-child(3) {
       width: 6%
     }
     span:nth-child(4) {
-      width: 5%
+      width: 4%
     }
     span:nth-child(5) {
       width: 5%
@@ -286,10 +286,10 @@ export default {
       width: 4%
     }
     span:nth-child(13) {
-      width: 4%
+      width: 6%
     }
     span:nth-child(14) {
-      width: 4%
+      width: 6%
     }
     span:nth-child(15) {
       width: 6%
@@ -304,10 +304,10 @@ export default {
       width: 3%
     }
     span:nth-child(19) {
-      width: 5%
+      width: 6%
     }
     span:nth-child(20) {
-      width: 10%
+      width: 8%
     }
   }
 }

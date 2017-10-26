@@ -18,8 +18,6 @@ import AdService from '@/services/ad.service'
 import { isEffective } from '@/utils/utils'
 import cookie from 'arale-cookie'
 
-let token = cookie.get('access_token')
-let tokenStr = '?access_token=' + token
 export default {
   data() {
     return {
@@ -49,7 +47,9 @@ export default {
   mounted() {
     this.AdService = new AdService()
     this.getProtocolInfo = true
-    this.url = this.API_HOST + this.$route.query.url + tokenStr
+    this.url = this.API_HOST + this.$route.query.url + '?access_token=' + cookie.get('access_token')
+    console.log('this.tokenStr===' + cookie.get('access_token'))
+    console.log('this.url===' + this.url)
   },
   methods: {
     async save () {

@@ -229,6 +229,7 @@ export default {
     }
   },
   created() {
+    console.log('---------' + cookie.get('access_token'))
     this.AdService = new AdService()
     if (!this.$route.query.assetID) {
       this.getInfo = false
@@ -268,6 +269,7 @@ export default {
       this.$notify.success('获取协议债权买卖成功')
     },
     showAgreement (url) {
+      console.log('/asset/link?url=' + url)
       this.$router.push('/asset/link?url=' + url)
     }
   }
@@ -304,9 +306,13 @@ export default {
         line-height: 36px;
         font-size: 14px;
         margin: 4px 0;
+        span:nth-child(1) {
+          width: 120px;
+          margin-left: 4px;
+        }
         span {
           display: table-cell;;
-          width: 49%;
+          // width: 49%;
           a {
             display: block;
             width: 100%;
